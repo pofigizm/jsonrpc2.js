@@ -73,7 +73,7 @@ describe('jsonrpc2 (http)', function () {
         err = e
       }
       assert(err)
-      assert.equal(err.code, 'ETIMEDOUT')
+      assert.equal(err.code, 'ESOCKETTIMEDOUT')
     })
 
     it('should support per-request timeout', function * () {
@@ -85,7 +85,7 @@ describe('jsonrpc2 (http)', function () {
         err = e
       }
       assert(err)
-      assert.equal(err.code, 'ETIMEDOUT')
+      assert.equal(err.code, 'ESOCKETTIMEDOUT')
     })
   })
 
