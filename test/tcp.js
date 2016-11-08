@@ -42,4 +42,17 @@ describe('jsonrpc2 (tcp)', function () {
     assert(called, 'called the method')
     assert.equal(result, 42)
   })
+
+  it('should handle connection errors', function * () {
+    mock.disable()
+
+    let error = null
+    const client = new Client('tcp://sldkfjsdflksdfjsdklfjssdlfj:23423')
+    try {
+      yield client.call('Foo.Bar', 12)
+    } catch (e) {
+      error = e
+    }
+    assert(error)
+  })
 })
